@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,pre,a,code,em,img,small,strong,sub,sup,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+table{border-collapse:collapse;border-spacing:0}
+body{height:100%; font:12px/18px "Microsoft Yahei", Tahoma, Helvetica, Arial, Verdana, "\5b8b\4f53", sans-serif; color:#51555C; background:#F0F4F8}
+img{border:none}
+#header{width:980px; height:92px; margin:0 auto; position:relative}
+#main{width:800px; min-height:650px; margin:30px auto 0 auto; background:#fff; -moz-border-radius:12px;-khtml-border-radius: 12px;-webkit-border-radius: 12px; border-radius:12px;}
+h2.top_title{margin:4px 20px; padding-top:15px; padding-left:20px; padding-bottom:10px; border-bottom:1px solid #d3d3d3; font-size:18px; color:#a84c10; }
+#calendar {width: 700px;margin: 20px auto 10px auto}

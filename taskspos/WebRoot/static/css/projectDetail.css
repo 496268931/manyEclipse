@@ -1,0 +1,8 @@
+@charset "utf-8";
+/* CSS Document */
+	.main_nav{height:34px;background-image:url(../images/15.jpg);background-position:0px 7px;background-repeat:repeat-x;margin-top:5px;overflow:hidden;}
+	.main_nov{height:34px;background-image:url("../images/15.jpg"); background-position: 0px 7px; background-repeat: }
+	.main_nav a{width:150px;height:34px;color:#000;text-decoration:none;padding-top:14px;font-size:14px;text-align:center;display:block;float:left;	overflow: hidden;text-overflow: ellipsis;white-space:nowrap;}
+	.main_nav a.nav{background:url(../images/icon/nav_tab.jpg) no-repeat;color:#000;}
+	.main_nav  a.nav:hover{background:url(../images/icon/nav_tab_hover.jpg) no-repeat;color:#000;}	
+	.main_nav a.active{background:url(../images/icon/nav_tab_active.jpg) no-repeat;padding-top:0px;		color:#000;line-height:34px;display:block;font-weight:bold;}

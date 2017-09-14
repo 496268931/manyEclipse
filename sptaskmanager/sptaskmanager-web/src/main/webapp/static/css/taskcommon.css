@@ -1,0 +1,16 @@
+body {font-family: Verdana, Arial;margin: 0;padding:0;font-size:13px;}
+div, img{margin:0; padding:0px;}
+#cardcontent{ min-width:1366px;width:expression_r((document.documentElement.clientWidth||document.body.clientWidth)<1000?"1366px":"auto");}
+#cardleft {float: left;width: 225px;border:1px solid #1B77B1;}
+#cardcenter{min-width:15.1%;_width:expression_r((document.documentElement.clientWidth||document.body.clientWidth)<1000?"15.1%":"auto");margin:0 0 0 225px;border:1px solid #1B77B1;}
+#searchTop {float: left;width: 98%;border:0px solid #1B77B1;}
+#viewTop {float: left;width: 98%;border:0px solid #1B77B1;}
+.titlebg {height:35px;color:#045B9E;background-image: url(../imags/wtm010.gif);background-repeat: repeat-x; }
+
+/*±í¸ñ*/
+.list{ width:100%; border-left:1px solid #bcbcbc; border-top:1px solid #bcbcbc; text-align:center; *+width:100%; margin-bottom:5px;}
+.list td {border-right:1px solid #bcbcbc; border-bottom:1px solid #bcbcbc; height:30px; }
+.list tr:hover{background-color:#eef2f9}
+.list img{line-height:30px; vertical-align:middle}
+.list th{height:30px; background-image:url(../images/table.gif); background-repeat:repeat-x; color:#000; border-right:1px solid #bcbcbc; border-bottom:1px solid #bcbcbc}
+.list .tdl{padding-left:5px; text-align:left}

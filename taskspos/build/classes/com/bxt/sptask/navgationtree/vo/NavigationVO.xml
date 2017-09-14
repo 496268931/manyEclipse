@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.bxt.sptask.navgationtree.vo">
+    <typeAlias alias="navigationVO" type="com.bxt.sptask.navgationtree.vo.NavigationVO"/>
+
+    <!-- 通用查询条件 -->
+    <sql id="searchCondition">
+	    WHERE 1 = 1
+        <isNotEmpty property="nodeid" prepend="AND">
+            <![CDATA[ 
+                navigation.nodeId = #nodeid#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="hitnum" prepend="AND">
+            <![CDATA[ 
+                navigation.hitNum = #hitnum#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="isextend" prepend="AND">
+            <![CDATA[ 
+                navigation.isExtend = #isextend#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="nodename" prepend="AND">
+            <![CDATA[ 
+                navigation.nodeName = #nodename#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="parnodeid" prepend="AND">
+            <![CDATA[ 
+                navigation.parNodeId = #parnodeid#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="schstr" prepend="AND">
+            <![CDATA[ 
+                navigation.schStr = #schstr#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="userid" prepend="AND">
+            <![CDATA[ 
+                navigation.userId = #userid#
+            ]]>
+        </isNotEmpty>
+    </sql>
+    
+    <!-- 通用查询字段 -->
+    <sql id="searchResult">
+        <![CDATA[
+	    SELECT
+            navigation.nodeId AS nodeid,
+            navigation.hitNum AS hitnum,
+            navigation.isExtend AS isextend,
+            navigation.nodeName AS nodename,
+            navigation.parNodeId AS parnodeid,
+            navigation.schStr AS schstr,
+            navigation.userId AS userid 
+        FROM  t_navigation AS navigation
+        ]]>
+    </sql>
+    
+ 	<!-- 查找t_navigationVO实体信息列表 -->
+	<select id="getNavigationByUserid" resultClass="navigationVO" parameterClass="String">
+		<include refid="searchResult"/>
+		 <![CDATA[
+            WHERE  navigation.userId = #userid# 
+        ]]>
+	</select>
+	
+	
+    <!-- 查找t_navigationVO实体信息列表 -->
+    <select id="searchNavigationList" resultClass="navigationVO" parameterClass="navigationVO">
+        <include refid="searchResult"/>
+        <include refid="searchCondition"/>
+        <isNotEmpty property="multiColumnSort">
+            <![CDATA[ $multiColumnSort$ ]]>
+        </isNotEmpty>
+        <isNotEmpty property="startIndex">
+            <isNotEmpty property="size">
+                <![CDATA[ LIMIT #startIndex#, #size# ]]>
+            </isNotEmpty>
+        </isNotEmpty>
+    </select>
+    
+    <!-- 查找t_navigationVO实体信息总数 -->
+    <select id="searchNavigationCount" resultClass="int" parameterClass="navigationVO">
+        <![CDATA[
+            SELECT count(1) count_
+	        FROM   t_navigation AS navigation
+        ]]>
+        <include refid="searchCondition" />
+    </select>
+
+    <!-- 查询t_navigationVO实体对象 -->
+    <select id="searchNavigationById" resultClass="navigationVO" parameterClass="Integer">
+        <include refid="searchResult" />
+        <![CDATA[
+            WHERE  navigation.nodeId = #nodeid#
+        ]]>
+    </select>
+
+    <select id="searchNavigation" resultClass="navigationVO" parameterClass="navigationVO">
+        <include refid="searchResult" />
+        <include refid="searchCondition"/>
+    </select>
+    
+    <!-- 更新t_navigationVO实体对象 -->
+    <update id="updateNavigation" parameterClass="navigationVO">
+       <![CDATA[
+            UPDATE t_navigation
+            SET
+                   hitNum = #hitnum#,
+                   isExtend = #isextend#,
+                   nodeName = #nodename#,
+                   parNodeId = #parnodeid#,
+                   schStr = #schstr#,
+                   userId = #userid# 
+            WHERE
+                   nodeId = #nodeid#
+        ]]>
+    </update>
+
+    <!-- 插入t_navigationVO实体对象 -->
+    <insert id="insertNavigation" parameterClass="navigationVO">
+        <![CDATA[
+            INSERT INTO 
+                    t_navigation
+                    (
+                    hitNum,
+                    isExtend,
+                    nodeName,
+                    parNodeId,
+                    schStr,
+                    userId
+                    )
+            VALUES  (
+                    #hitnum#,
+                    #isextend#,
+                    #nodename#,
+                    #parnodeid#,
+                    #schstr#,
+                    #userid#
+                    ) 
+        ]]>
+        <selectKey keyProperty="nodeid" resultClass="Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <!-- 删除t_navigationVO实体对象 -->
+    <delete id="deleteNavigation" parameterClass="Integer">
+        <![CDATA[
+            DELETE FROM 
+                   t_navigation
+            WHERE  
+                   nodeId = #nodeid# 
+        ]]>
+    </delete>
+
+</sqlMap>

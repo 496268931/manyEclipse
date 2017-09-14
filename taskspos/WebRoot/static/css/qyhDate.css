@@ -1,0 +1,112 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td, iframe {
+	margin: 0;
+	padding: 0;
+}
+
+tbody {
+	display: table-row-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+tr {
+	display: table-row;
+	vertical-align: inherit;
+	border-color: inherit;
+}
+
+td, th {
+	display: table-cell;
+	vertical-align: inherit;
+}
+
+b {font-weight: bold;}
+.clr_after:after {clear: both;display: block;height: 0;visibility: hidden;content: ".";}
+.fL{float:left}
+.fR{float:right}
+
+.qyh-date{position:absolute;width:978px;display:none;background: #fff;font: 12px/1.5 Arial,sans-serif;color: #555;}
+.content{background:#2aa5c9;padding:4px;margin-top:10px;width: 968px;}
+/*
+.info{margin-top:10px}
+.info .red{color:#fc174f;display:block;line-height:28px;margin-left:10px;}
+.info .tip{height:22px;line-height:22px}
+.info .tip em{display:inline-block;border:1px solid #e1e1e1;padding:1px;width:8px;height:8px;font-size:0;margin:0 10px;}
+.info .tip s{display:inline-block;width:8px;height:8px;font-size:0;background:#498b05;}
+.info .tip s.red{background:#fc174f;margin-left:0;}
+.info .tip s.blue{background:#0069ca;}
+.info .mody_tip{margin-right:10px;line-height:22px;vertical-align:middle;color:#fd075a;}
+.info .mody{width:70px;height:22px;margin-right: 10px;border:0;vertical-align:middle;background:url(../images/btn_bg2.png) no-repeat 0 0;color:#fff;font-family:Arial,sans-serif;margin-right:10px;cursor:pointer;}
+.info .mody_2{width:70px;height:22px;margin-right:10px;border:0;vertical-align:middle;background:url(../images/btn_bg2.png) no-repeat 0 -28px;color:#fff;font-family:Arial,sans-serif;cursor:pointer;}
+.inner{width:482px;background:#fff}
+.inner .top{position:relative;padding-top:8px}
+.inner .top div{color:#0069ca;text-align:center;font-size:14px;font-weight:bold}
+.inner .top .arrow_l{position:absolute;top:8px;left:6px;background:url(../images/QN1CS1.gif) no-repeat -52px 0;display:block;width:8px;height:13px}
+.inner .top .arrow_r{position:absolute;top:8px;right:6px;background:url(../images/QN1CS1.gif) no-repeat -70px 0;display:block;width:8px;height:13px}
+.tb thead th{border-bottom:1px solid #e4e4e4;line-height:34px;height:34px;text-align:center}
+.tb thead th.lred{color:#fd075a}
+.tb tbody td{height:50px;width:74px;border-right:1px solid #efefef;border-bottom:1px solid #efefef;vertical-align:top}
+.tb tbody td.end{border-right:0}
+.tb tbody td p{border:2px solid #fff;height:46px}
+.tb tbody td .date{display:block;line-height:20px;text-align:right;font-size:18px;color:#cacaca;padding:0 3px 0 11px}
+.tb tbody td .blue{display:block;width:62px;line-height:13px;color:#0069ca;text-indent:5px}
+.tb tbody td .green{display:block;line-height:13px;color:#498b05;padding:0 3px 0 11px}
+.tb tbody td .red{display:block;line-height:13px;color:#fc174f;padding:0 3px 0 11px}
+.tb tbody td .white{color:#fff;background:#cacaca;display:block;line-height:25px;height:25px;text-align:center}
+.tb tbody td .gray{color:#888;background:#ebebeb;display:block;line-height:25px;height:25px;text-align:center}
+.tb tbody td .white:hover{background:#6899ff}
+.tb tbody td .gray:hover{background:#fdab00;color:#fff}
+.tb tbody td p.blue_line .gray,.content tbody td p.blue_line .white{height:23px;line-height:23px}
+.tb tbody td p.orange_line .gray,.content tbody td p.orange_line .white{height:23px;line-height:23px}
+.tb tbody td .date_2{color:#e8e8e8}
+.tb tbody td p.orange_line{border-color:#fdab00}
+.tb tbody td p.blue_line{border-color:#6899ff}
+.tb tbody td p.no_line{border:0}
+*/
+
+.info{margin-top:10px}
+.info .red{color:#fc174f;display:block;line-height:28px;margin-left:10px;}
+.info .tip{height:22px;line-height:22px}
+.info .tip em{display:inline-block;border:1px solid #e1e1e1;padding:1px;width:8px;height:8px;font-size:0;margin:0 10px;  border-radius: 5px;}
+.info .tip s{display:inline-block;width:8px;height:8px;font-size:0;background:#2AA5C9; border-radius: 5px;}
+.info .tip s.red{background:#fc174f;margin-left:0;}
+.info .tip s.blue{background:#0069CA;}
+.info .mody_tip{margin-right:10px;line-height:22px;vertical-align:middle;color:#fd075a;}
+.info .mody{width:70px;height:22px;border:0;vertical-align:middle;background:url(../images/btn_bg2.png) no-repeat 0 0;color:#fff;font-family:Arial,sans-serif; margin:0 10px;cursor:pointer;}
+.info .mody_2{width:70px;height:22px;border:0;vertical-align:middle;background:url(../images/btn_bg2.png) no-repeat 0 -28px;color:#fff;font-family:Arial,sans-serif;cursor:pointer;}
+.inner{width:482px;background:#fff}
+.inner .top{position:relative;padding-top:8px}
+.inner .top div{color:#0069ca;text-align:center;font-size:14px;font-weight:bold}
+.inner .top .arrow_l{position:absolute;top:8px;left:6px;background:url(../images/QN1CS1.gif) no-repeat -52px 0;display:block;width:8px;height:13px}
+.inner .top .arrow_r{position:absolute;top:8px;right:6px;background:url(../images/QN1CS1.gif) no-repeat -70px 0;display:block;width:8px;height:13px}
+.tb thead th{border-bottom:1px solid #e4e4e4;line-height:34px;height:34px;text-align:center}
+.tb thead th.lred{color:#fd075a}
+.tb tbody td{height:56px;width:74px;border-right:1px solid #efefef;border-bottom:1px solid #efefef;vertical-align:top}
+.tb tbody td.end{border-right:0}
+.tb tbody td p{border:1px solid #fff;height:52px;}
+.tb tbody td .no_house{ width:63px; background:#f6f6f6;}
+.tb tbody td .date{display:block;line-height:18px;text-align:right;font-size:16px;color:#cacaca;padding:0 3px 0 11px}
+.tb tbody td .blue{width:60px; display:block; line-height:16px;color:#0069ca;text-indent:5px; font-weight:bold;}
+.tb tbody td .green{ width:60px;display:block;line-height:16px;color:#2aa5c9; text-align:right;padding-right:3px;}
+.tb tbody td .red{display:block;line-height:13px;color:#fc174f; text-align:center;}
+.tb tbody td .white{color:#fff;background:#cacaca;display:block;line-height:27px;height:27px;text-align:center}
+.tb tbody td .gray{color:#888;background:#ebebeb;display:block;line-height:27px;height:27px;text-align:center}
+.tb tbody td .white:hover{background:#2aa5c9}
+.tb tbody td .gray:hover{background:#ef832b;color:#fff}
+.tb tbody td p.blue_line .gray,.tb tbody td p.blue_line .white{height:26px;line-height:26px}
+.tb tbody td p.orange_line .gray,.tb tbody td p.orange_line .white{height:26px;line-height:26px}
+.tb tbody td .date_2{color:#e8e8e8}
+.tb tbody td p.orange_line{border-color:#ef832b}
+.tb tbody td p.blue_line{border-color:#2aa5c9}
+.tb tbody td p.no_line{ width:64px; border:0}
+
+.dm{
+position: absolute;
+left: 10px;
+top: 66px;
+font: 150px/150px Arial;
+color: #cfeff1;
+z-index: 20;
+width: 200px;
+text-align: center;
+}

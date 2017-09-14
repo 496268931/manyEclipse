@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+	.main_nav{height:34px;background-image:url(../images/15.jpg);background-position:0px 7px;background-repeat:repeat-x;margin-top:5px;overflow:hidden;}
+	.main_nav a{width:150px;height:34px;color:#000;text-decoration:none;padding-top:14px;font-size:14px;text-align:center;display:block;float:left;	overflow: hidden;text-overflow: ellipsis;white-space:nowrap;}
+	.main_nav a.nav{background:url(../images/icon/nav_tab.jpg) no-repeat;color:#000;}
+	.main_nav  a.nav:hover{background:url(../images/icon/nav_tab_hover.jpg) no-repeat;color:#000;}	
+	.main_nav a.active{background:url(../images/icon/nav_tab_active.jpg) no-repeat;padding-top:0px;color:#000;line-height:34px;display:block;font-weight:bold;}
+	.btn_action{background:url(../images/icon/btn_action2_80.gif) no-repeat;background-size: 100%;border:none;width:80px;height:25px;line-height:25px; color:#FFF}
+	.btn_action_sub{background:url(../images/icon/btn_action2.gif) no-repeat;border:none;width:52px;height:25px;line-height:25px; color:#FFF}
+	.edit_table_resource{ width:100%; background-color:#bfd4e5;font-size: 12px;}
+	.edit_table_resource thead th{font:bold;text-align:center;background:url(../images/list_table_head_bg.jpg) repeat-x; height:29px;}
+	.edit_table_resource tbody th{ width:120px; text-align:right; padding-right:10px; background-color:#FFF;height:29px; line-height:29px;}
+	/* .edit_table_resource tbody td input{width:140px;} */
+	.edit_table_resource tbody td select{width:140px;}
+	.edit_table_resource tbody td{ text-align:left; padding-left:5px; height:29px; line-height:29px;}
+	.edit_table_resource tr{ background:#fff}
+	.edit_table_resource tr.odd { background:#F8FCFB;}
+	.edit_table_resource tr.odd th { background:#F8FCFB;}
+	.edit_table_resource tr.even { background:#FFF;}
+	.edit_table_resource tr.even th{ background:#FFF;}
+	.edit_table_resource tr.highlight { background:#dff2f9;}
+	.edit_table_resource tr.highlight th{ background:#dff2f9;}
+	.list_table thead th {font:bold;text-align:center;vertical-align: middle;background:url(../images/list_table_head_bg.jpg) repeat-x; height:29px;font-size: 12px;}

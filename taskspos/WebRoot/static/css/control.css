@@ -1,0 +1,21 @@
+.control {
+    position: absolute;
+    width: 10px;
+    height: 50px;
+    top: 50%;
+    margin-top: -25px;
+    background-image: url("../images/fclose.jpg");
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+.control_body {
+    margin: 0px;
+    height: 100%;
+    background-color: #3aaaff;
+}
+.container{
+    width:100%;
+    height:100%;
+    margin:0px;
+    background-position:center;
+}

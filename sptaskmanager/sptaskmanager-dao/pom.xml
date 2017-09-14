@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.inter3i</groupId>
+		<artifactId>sptaskmanager</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>sptaskmanager-dao</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.inter3i</groupId>
+			<artifactId>sptaskmanager-vo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- ibatis -->
+		<dependency>
+			<groupId>org.apache.ibatis</groupId>
+			<artifactId>ibatis-sqlmap</artifactId>
+			<version>${ibatis.sqlmap.vertion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ibatis</groupId>
+			<artifactId>ibatis-core</artifactId>
+			<version>${ibatis.core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+		</dependency>
+
+	</dependencies>
+
+</project>

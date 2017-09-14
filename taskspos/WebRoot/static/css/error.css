@@ -1,0 +1,165 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	font-size:12px;
+	margin:0;
+	padding:0;
+	letter-spacing:normal;
+	background-color:#F0F4F8;
+	color:#4e4e4e;
+	font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+}
+
+.err403 {
+	height: 306px;
+	width: 673px;
+	float: none;
+	padding-top: 40px;
+	padding-left: 40px;
+	margin: 0 auto;
+}
+.err403-1 {
+	background-image: url(../images/error/403.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 306px;
+	width: 673px;
+	float: none;
+}
+.err403-f {
+	font-size: 30px;
+	color: #929292;
+	float: left;
+	height: 40px;
+	width: 420px;
+	padding-left: 240px;
+	padding-top: 100px;
+	text-align: left;
+}
+.err403-x {
+	font-size: 24px;
+	color: #4C4848;
+	float: left;
+	height: 40px;
+	width: 420px;
+	padding-left: 240px;
+	padding-top: 10px;
+	text-align: left;
+}
+.err403-x span {
+	font-size: 36px;
+	color: #3465CE;
+	text-decoration: underline;
+}
+.err403-x span a {
+	font-size: 36px;
+	color: #3465CE;
+	text-decoration: underline;
+}
+.err403-x span a:hover {
+	font-size: 36px;
+	color: #3465CE;
+	text-decoration: underline;
+}
+
+
+.err404 {
+	height: 419px;
+	width: 689px;
+	float: none;
+	padding-top: 40px;
+	padding-left: 40px;
+	margin: 0 auto;
+}
+.err404-1 {
+	background-image: url(../images/error/404.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 419px;
+	width: 689px;
+	float: none;
+}
+.err404-f {
+	font-size: 30px;
+	color: #929292;
+	float: left;
+	height: 40px;
+	width: 520px;
+	padding-left: 123px;
+	padding-top: 160px;
+	text-align: left;
+}
+.err404-x {
+	font-size: 18px;
+	color: #4C4848;
+	float: left;
+	height: 40px;
+	width: 520px;
+	padding-left: 126px;
+	padding-top: 20px;
+	text-align: left;
+}
+.err404-x span {
+	font-size: 18px;
+	color: #3465CE;
+	text-decoration: none;
+}
+.err404-x span a {
+	color: #3465CE;
+	text-decoration: none;
+}
+.err404-x span a:hover {
+	color: #3465CE;
+	text-decoration: none;
+}
+
+
+.err500 {
+	height: 339px;
+	width: 728px;
+	float: none;
+	padding-top: 40px;
+	padding-left: 40px;
+	margin: 0 auto;
+}
+.err500-1 {
+	background-image: url(../images/error/500.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 339px;
+	width: 728px;
+	float: none;
+}
+.err500-f {
+	font-size: 30px;
+	color: #929292;
+	float: left;
+	height: 40px;
+	width: 420px;
+	padding-left: 300px;
+	padding-top: 160px;
+	text-align: left;
+}
+.err500-x {
+	font-size: 18px;
+	color: #4C4848;
+	float: left;
+	height: 40px;
+	width: 418px;
+	padding-left: 302px;
+	padding-top: 20px;
+	text-align: left;
+}
+.err500-x span {
+	font-size: 18px;
+	color: #3465CE;
+	text-decoration: none;
+}
+.err500-x span a {
+	color: #3465CE;
+	text-decoration: none;
+}
+.err500-x span a:hover {
+	color: #3465CE;
+	text-decoration: none;
+}

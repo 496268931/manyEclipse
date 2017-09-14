@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.bxt.sptask.spideraccount.vo">
+    <typeAlias alias="spideraccountVO" type="com.bxt.sptask.spideraccount.vo.SpideraccountVO"/>
+
+    <!-- 通用查询条件 -->
+    <sql id="searchCondition">
+	    WHERE 1 = 1
+        <isNotEmpty property="id" prepend="AND">
+            <![CDATA[ 
+                spideraccount.id = #id#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="inuse" prepend="AND">
+            <![CDATA[ 
+                spideraccount.inuse = #inuse#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="password" prepend="AND">
+            <![CDATA[ 
+                spideraccount.password = #password#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="sourceid" prepend="AND">
+            <![CDATA[ 
+                spideraccount.sourceid = #sourceid#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="username" prepend="AND">
+            <![CDATA[ 
+                spideraccount.username = #username#
+            ]]>
+        </isNotEmpty>
+    </sql>
+    
+    <!-- 通用查询字段 -->
+    <sql id="searchResult">
+        <![CDATA[
+	    SELECT
+            spideraccount.id AS id,
+            spideraccount.inuse AS inuse,
+            spideraccount.password AS password,
+            spideraccount.sourceid AS sourceid,
+            spideraccount.username AS username 
+        FROM  spideraccount AS spideraccount
+        ]]>
+    </sql>
+
+    <!-- 查找SpideraccountVO实体信息列表 -->
+    <select id="searchSpideraccountList" resultClass="spideraccountVO" parameterClass="spideraccountVO">
+        <include refid="searchResult"/>
+        <include refid="searchCondition"/>
+        <isNotEmpty property="multiColumnSort">
+            <![CDATA[ $multiColumnSort$ ]]>
+        </isNotEmpty>
+        <isNotEmpty property="startIndex">
+            <isNotEmpty property="size">
+                <![CDATA[ LIMIT #startIndex#, #size# ]]>
+            </isNotEmpty>
+        </isNotEmpty>
+    </select>
+    
+    <!-- 查找SpideraccountVO实体信息总数 -->
+    <select id="searchSpideraccountCount" resultClass="int" parameterClass="spideraccountVO">
+        <![CDATA[
+            SELECT count(1) count_
+	        FROM   spideraccount AS spideraccount
+        ]]>
+        <include refid="searchCondition" />
+    </select>
+
+    <!-- 查询SpideraccountVO实体对象 -->
+    <select id="searchSpideraccountById" resultClass="spideraccountVO" parameterClass="Integer">
+        <![CDATA[
+            SELECT username,password 
+        	FROM spideraccount 
+            WHERE  spideraccount.id = #id#
+        ]]>
+    </select>
+    
+    <!-- 查询SpideraccountVO实体对象 -->
+    <select id="searchSpideraccountBySourceid" resultClass="spideraccountVO" parameterClass="Integer">
+        <![CDATA[
+        	SELECT id,username,password,inuse,sourceid 
+        	FROM spideraccount 
+        	WHERE inuse = (select min(inuse) from spideraccount where sourceid = #sourceid#) and sourceid = #sourceid# limit 1
+        ]]>
+    </select>
+    
+     <update id="udpateSpideraccountBySourceid" parameterClass="Integer">
+       <![CDATA[
+            UPDATE spideraccount
+            SET
+               inuse = 0
+            WHERE sourceid = #sourceid#
+        ]]>
+    </update>
+    
+    <update id="udpateSpideraccountByID" parameterClass="spideraccountVO">
+       <![CDATA[
+            UPDATE spideraccount
+            SET
+               inuse = #inuse#
+            WHERE id = #id#
+        ]]>
+    </update>
+    
+
+    <select id="searchSpideraccount" resultClass="spideraccountVO" parameterClass="spideraccountVO">
+        <include refid="searchResult" />
+        <include refid="searchCondition"/>
+    </select>
+    
+    <!-- 更新SpideraccountVO实体对象 -->
+    <update id="updateSpideraccount" parameterClass="spideraccountVO">
+       <![CDATA[
+            UPDATE spideraccount
+            SET
+                   inuse = #inuse#,
+                   password = #password#,
+                   sourceid = #sourceid#,
+                   username = #username# 
+            WHERE
+                   id = #id#
+        ]]>
+    </update>
+
+    <!-- 插入SpideraccountVO实体对象 -->
+    <insert id="insertSpideraccount" parameterClass="spideraccountVO">
+        <![CDATA[
+            INSERT INTO 
+                    spideraccount
+                    (
+                    inuse,
+                    password,
+                    sourceid,
+                    username
+                    )
+            VALUES  (
+                    #inuse#,
+                    #password#,
+                    #sourceid#,
+                    #username#
+                    ) 
+        ]]>
+        <selectKey keyProperty="id" resultClass="Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <!-- 删除SpideraccountVO实体对象 -->
+    <delete id="deleteSpideraccount" parameterClass="Integer">
+        <![CDATA[
+            DELETE FROM 
+                   spideraccount
+            WHERE  
+                   id = #id# 
+        ]]>
+    </delete>
+
+</sqlMap>

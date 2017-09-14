@@ -1,0 +1,35 @@
+/* CSS Document */
+/*body{ background:#98b4dc url(../images/login_02.jpg) repeat-x; width:100%; height:100%}
+.wrap{}
+*//*.loginPanel{background:url(../images/login2_05.jpg) no-repeat; width:467px; height:145px; margin:0 auto;padding:315px 0 0 260px;}*/
+.loginPanel ul{ font-size:12px; color:#45649d}
+.loginPanel ul li{height:30px; width:278px}
+.loginPanel ul li input{float:left;border:1px solid #869eb8 }
+.loginPanel ul li .get-psw{float:left; height:25px; line-height:25px; padding-left:8px; }
+.loginPanel ul li .get-psw a{color:#45649d;}
+.loginPanel ul li .get-psw a:hover{text-decoration:underline}
+.loginPanel ul li .btn-style01{margin-right:4px; display:inline; background: url(../images/login2_06.jpg) no-repeat; width:53px; height:22px; color:#cfe5fd; border:none;}
+.loginPanel ul li span{float:left; display:block; height:25px; line-height:25px; width:50px; text-align:right;}
+.loginPanel ul li:after{ content:"."; display:block; clear:both; height:0; line-height:0; font-size:0; visibility:hidden;}
+
+
+body{
+	background: none repeat scroll 0 0 #2D4C9C;
+    overflow: hidden;
+}
+.wrap{
+	background: url(../images/loginPanel.jpg) no-repeat scroll center center #2D4C9C;
+    height: 620px;
+    left: 50%;
+    margin-left: -340px;
+    margin-top: -310px;
+    position: absolute;
+    top: 50%;
+    width: 680px;
+    z-index: 100;}
+.loginPanel{ 
+	height: 145px;
+    margin: 0 auto;
+    padding: 330px 0 0 230px;
+    width: 467px;
+}

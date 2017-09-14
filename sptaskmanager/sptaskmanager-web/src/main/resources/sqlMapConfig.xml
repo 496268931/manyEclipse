@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+		"http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<!--<sqlMap>元素用于包括SQL Map映射文件和其他的SQL Map配置文件。 -->
+	<settings lazyLoadingEnabled="true" useStatementNamespaces="true"/>
+	<sqlMap resource="com/bxt/sptask/common/SqlMapAliasConfig.xml"/>
+	<sqlMap resource="com/bxt/sptask/taskhandle/vo/TaskVo.xml"/>
+	<sqlMap resource="com/bxt/sptask/navgationtree/vo/NavigationVO.xml"/>
+	<sqlMap resource="com/bxt/sptask/sptmpconfig/vo/SpiderconfigVO.xml"/>
+	<sqlMap resource="com/bxt/sptask/sptmpconfig/vo/TaskcfgtempVO.xml"/>
+	<sqlMap resource="com/bxt/sptask/spideraccount/vo/SpideraccountVO.xml"/>
+	<!--<sqlMap resource="com/bxt/sptask/user/vo/UserVO.xml"/>-->
+	
+	<!--<sqlMap resource="com/chinazrbc.xz/admin/organization/employee/vo/EmployeeVO.xml"/>-->
+	
+</sqlMapConfig>
+

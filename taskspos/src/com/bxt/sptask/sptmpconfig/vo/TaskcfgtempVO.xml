@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.bxt.sptask.sptmpconfig.vo">
+    <typeAlias alias="taskcfgtempVO" type="com.bxt.sptask.sptmpconfig.vo.TaskcfgtempVO"/>
+
+    <!-- 通用查询条件 -->
+    <sql id="schTaskcfgtempCondition">
+	    WHERE 1 = 1
+        <isNotEmpty property="nodeid" prepend="AND">
+            <![CDATA[ 
+                taskcfgtemp.nodeId = #nodeid#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="hitnum" prepend="AND">
+            <![CDATA[ 
+                taskcfgtemp.hitNum = #hitnum#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="isextend" prepend="AND">
+            <![CDATA[ 
+                taskcfgtemp.isExtend = #isextend#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="nodename" prepend="AND">
+            <![CDATA[ 
+                taskcfgtemp.nodeName = #nodename#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="parnodeid" prepend="AND">
+            <![CDATA[ 
+                taskcfgtemp.parNodeId = #parnodeid#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="paramvalue" prepend="AND">
+            <![CDATA[ 
+                taskcfgtemp.paramvalue = #paramvalue#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="userid" prepend="AND">
+            <![CDATA[ 
+                taskcfgtemp.userId = #userid#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="paramtype" prepend="AND">
+            <![CDATA[ 
+                taskcfgtemp.paramtype = #paramtype#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="paramextype" prepend="AND">
+            <![CDATA[ 
+                taskcfgtemp.paramextype = #paramextype#
+            ]]>
+        </isNotEmpty>
+    </sql>
+    
+    <!-- 通用查询字段 -->
+    <sql id="schTaskcfgtempResult">
+        <![CDATA[
+	    SELECT
+            taskcfgtemp.nodeId AS nodeid,
+            taskcfgtemp.hitNum AS hitnum,
+            taskcfgtemp.isExtend AS isextend,
+            taskcfgtemp.nodeName AS nodename,
+            taskcfgtemp.parNodeId AS parnodeid,
+            taskcfgtemp.paramvalue AS paramvalue,
+            taskcfgtemp.paramtype as paramtype,
+             taskcfgtemp.paramextype AS paramextype,
+            taskcfgtemp.userId AS userid 
+        FROM  t_taskcfgtemp AS taskcfgtemp
+        ]]>
+    </sql>
+
+    <!-- 查找t_taskcfgtempVO实体信息列表 -->
+    <select id="getTaskcfgtempInfo" resultClass="taskcfgtempVO">
+        <include refid="schTaskcfgtempResult"/>
+    </select>
+  
+   
+</sqlMap>

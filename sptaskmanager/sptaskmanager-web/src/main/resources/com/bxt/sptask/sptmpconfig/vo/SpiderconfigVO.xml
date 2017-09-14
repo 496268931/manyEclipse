@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.bxt.sptask.sptmpconfig.vo">
+    <typeAlias alias="schSpiderconfigVO" type="com.bxt.sptask.sptmpconfig.vo.SchSpiderconfigVO"/>
+
+    <!-- 通用查询条件 -->
+    <sql id="searchCondition">
+	    WHERE 1 = 1
+        <isNotEmpty property="id" prepend="AND">
+            <![CDATA[ 
+                spiderconfig.id = #id#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="content" prepend="AND">
+            <![CDATA[ 
+                spiderconfig.content = #content#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="detailurlregex" prepend="AND">
+            <![CDATA[ 
+                spiderconfig.detailurlregex = #detailurlregex#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="name" prepend="AND">
+            <![CDATA[ 
+                spiderconfig.name = #name#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="templatetype" prepend="AND">
+            <![CDATA[ 
+                spiderconfig.templatetype = #templatetype#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="urlconfigrule" prepend="AND">
+            <![CDATA[ 
+                spiderconfig.urlconfigrule = #urlconfigrule#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="urlregex" prepend="AND">
+            <![CDATA[ 
+                spiderconfig.urlregex = #urlregex#
+            ]]>
+        </isNotEmpty>
+    </sql>
+    
+    <!-- 通用查询字段 -->
+    <sql id="searchResult">
+        <![CDATA[
+	    SELECT
+            spiderconfig.id AS id,
+            spiderconfig.content AS content,
+            spiderconfig.detailurlregex AS detailurlregex,
+            spiderconfig.name AS name,
+            spiderconfig.templatetype AS templatetype,
+            spiderconfig.urlconfigrule AS urlconfigrule,
+            spiderconfig.urlregex AS urlregex 
+        FROM  spiderconfig AS spiderconfig
+        ]]>
+    </sql>
+
+    <!-- 查找spiderconfigVO实体信息列表 -->
+    <select id="searchSpiderconfigList" resultClass="schSpiderconfigVO" parameterClass="schSpiderconfigVO">
+        <include refid="searchResult"/>
+        <include refid="searchCondition"/>
+        <![CDATA[ 
+        	LIMIT  #pageHandle.currentResult#,#pageHandle.showCount#
+        ]]>
+    </select>
+    
+    <!-- 查找spiderconfigVO实体信息总数 -->
+    <select id="searchSpiderconfigCount" resultClass="int" parameterClass="schSpiderconfigVO">
+        <![CDATA[
+            SELECT count(1) count_
+	        FROM   spiderconfig AS spiderconfig
+        ]]>
+        <include refid="searchCondition" />
+    </select>
+
+    <!-- 查询spiderconfigVO实体对象 -->
+    <select id="searchSpiderconfigById" resultClass="schSpiderconfigVO" parameterClass="String">
+        <include refid="searchResult" />
+        <![CDATA[
+            WHERE  spiderconfig.id = #id#
+        ]]>
+    </select>
+
+    <select id="searchSpiderconfig" resultClass="schSpiderconfigVO" parameterClass="schSpiderconfigVO">
+        <include refid="searchResult" />
+        <include refid="searchCondition"/>
+    </select>
+    
+    <!-- 更新spiderconfigVO实体对象 -->
+    <update id="updateSpiderconfig" parameterClass="schSpiderconfigVO">
+       <![CDATA[
+            UPDATE spiderconfig
+            SET
+                   content = #content#,
+                   detailurlregex = #detailurlregex#,
+                   name = #name#,
+                   templatetype = #templatetype#,
+                   urlconfigrule = #urlconfigrule#,
+                   urlregex = #urlregex# 
+            WHERE
+                   id = #id#
+        ]]>
+    </update>
+    
+     <!-- 查找爬虫查询模板VO实体信息列表 -->
+    <select id="schSpiderConfList" resultClass="schSpiderconfigVO">
+        <include refid="searchResult"/>
+    </select>
+
+    <!-- 插入spiderconfigVO实体对象 -->
+    <insert id="insertSpiderconfig" parameterClass="schSpiderconfigVO">
+        <![CDATA[
+            INSERT INTO 
+                    spiderconfig
+                    (
+                    content,
+                    detailurlregex,
+                    name,
+                    templatetype,
+                    urlconfigrule,
+                    urlregex
+                    )
+            VALUES  (
+                    #content#,
+                    #detailurlregex#,
+                    #name#,
+                    #templatetype#,
+                    #urlconfigrule#,
+                    #urlregex#
+                    ) 
+        ]]>
+        <selectKey keyProperty="id" resultClass="Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <!-- 删除spiderconfigVO实体对象 -->
+    <delete id="deleteSpiderconfig" parameterClass="Integer">
+        <![CDATA[
+            DELETE FROM 
+                   spiderconfig
+            WHERE  
+                   id = #id# 
+        ]]>
+    </delete>
+
+</sqlMap>

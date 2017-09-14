@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.inter3i</groupId>
+		<artifactId>sptaskparent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>com.inter3i</groupId>
+	<artifactId>sptaskmanager</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<dependencies>
+		<!-- 依赖sptaskcommon工程 -->
+		<dependency>
+			<groupId>com.inter3i</groupId>
+			<artifactId>sptaskcommon</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+	
+	
+	<modules>
+		<module>sptaskmanager-vo</module>
+		<module>sptaskmanager-dao</module>
+		<module>sptaskmanager-service</module>
+		<module>sptaskmanager-web</module>
+	</modules>
+</project>

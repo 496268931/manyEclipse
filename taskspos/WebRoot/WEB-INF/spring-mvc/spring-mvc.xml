@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	
+	<!-- 自动扫描且只扫描@Controller -->
+	<context:component-scan base-package="com.bxt.sptask" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+	</context:component-scan>
+	
+	<!-- ASPECTJ 自动代理开启 -->
+	<aop:aspectj-autoproxy/>
+	
+	<!-- 启动jackson的JSON自动转换 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<!-- 将StringHttpMessageConverter的默认编码设为UTF-8 -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+		    	<constructor-arg value="UTF-8" />
+			</bean>
+			<!-- 将Jackson2HttpMessageConverter的默认格式化输出设为true -->
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="prettyPrint" value="true"/>
+            </bean>			
+  		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	<!-- 定义JSP文件的位置 ,对模型视图名称的解析，即在模型视图名称添加前后缀--> 
+	<bean class="com.bxt.sptask.common.view.ExcludingInternalResourceViewResolver">
+		<property name="excludePrefix" value="jsp"></property>
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<!-- 容器默认的DefaultServletHandler处理 所有静态内容与无RequestMapping处理的URL-->
+	<mvc:default-servlet-handler/>
+	
+	<!-- 定义无需Controller的url<->view直接映射 -->
+	<mvc:view-controller path="/" view-name="redirect:/task"/>
+	
+    <bean id="multipartResolver"  
+	    class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >  
+	    <property name="defaultEncoding" value="utf-8"/> <!-- 默认编码 (utf-8) -->
+         <property name="maxInMemorySize" value="10240"/>  <!-- 最大内存大小 (10240) -->
+	     <property name="uploadTempDir" value="/upload/"/> <!-- 上传后的目录名 (WebUtils#TEMP_DIR_CONTEXT_ATTRIBUTE)  -->
+	    <property name="maxUploadSize" value="104857600"/> <!-- 最大文件大小，-1为无限止(-1) -->  
+	</bean>
+</beans>

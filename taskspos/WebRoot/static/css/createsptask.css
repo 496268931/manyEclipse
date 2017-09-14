@@ -1,0 +1,14 @@
+.table {float:left; width:380px; margin:5px 15px 0 0; margin-bottom:10px; *+width:360px  }
+.table .tabletitle{font-size:14px; font-weight:bold; height:35px; overflow:hidden; line-height:35px; vertical-align:middle; *+padding-top:5px; *+width:350px  }
+.table .img1{float:right; *+margin-top:-33px; cursor:pointer;  }
+.table .ctable{
+border:1px solid #a0a0a0; padding:10px; *+padding:5px
+}
+
+.formtable {width:98%}
+.formtable .tdleft{width:120px;text-align:right;}
+.formtable .tdtip{width:220px;text-align:left;color:gray}
+
+.divhr{
+	height:2px;margin:0;border-width:1px 0;border-style: solid;border-color: #A6C9E2;
+}

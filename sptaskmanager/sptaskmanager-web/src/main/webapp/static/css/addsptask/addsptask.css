@@ -1,0 +1,14 @@
+#divtasktree{
+	border:0px solid;
+}
+.lblFont
+{
+	color:#666666;
+}
+
+.formtable {width:98%}
+.formtable .tdleft{width:120px;text-align:right;}
+.formtable .tdtip{width:220px;text-align:left;color:gray}
+.divhr{
+	height:2px;margin:0;border-width:1px 0;border-style: solid;border-color: #A6C9E2;
+}

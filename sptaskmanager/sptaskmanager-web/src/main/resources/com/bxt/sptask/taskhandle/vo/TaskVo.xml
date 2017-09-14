@@ -1,0 +1,377 @@
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="com.bxt.sptask.taskhandle.vo">
+	<typeAlias alias="TaskVo" type="com.bxt.sptask.taskhandle.vo.TaskVo" />
+	<typeAlias alias="schTaskVO" type="com.bxt.sptask.taskhandle.vo.SchTaskVO" />
+	
+	 <!-- 通用查询字段 -->
+    <sql id="searchTaskResult">
+        <![CDATA[
+	    SELECT
+			id	                AS	id,
+			tasktype	        AS	tasktype,
+			taskpagestyletype	AS	taskpagestyletype,
+			task	            AS	task,
+			tasklevel	        AS	tasklevel,
+			local	            AS	local,
+			remote	            AS	remote,
+			timeout	            AS	timeout,
+			activatetime	    AS	activatetime,
+			conflictdelay	    AS	conflictdelay,
+			starttime	        AS	starttime,
+			endtime	            AS	endtime,
+			taskstatus	        AS	taskstatus,
+			datastatus	        AS	datastatus,
+			taskparams	        AS	taskparams,
+			remarks         	AS	remarks,
+			machine	            AS	machine,
+			tenantid	        AS	tenantid,
+			userid	            AS	userid,
+			error_code          AS  errorcode, 
+			spcfdmac            AS	spcfdmac,
+			error_msg	        AS	errormsg,
+			taskclassify	    AS	taskclassify
+		from task 
+        ]]>
+    </sql>
+	
+	<select id="getEveryGroupTaskInfo" resultClass="TaskVo" parameterClass="TaskVo">
+	  <![CDATA[
+	   SELECT
+			id	                AS	id,
+			tasktype	        AS	tasktype,
+			taskpagestyletype	AS	taskpagestyletype,
+			task	            AS	task,
+			tasklevel	        AS	tasklevel,
+			local	            AS	local,
+			remote	            AS	remote,
+			timeout	            AS	timeout,
+			activatetime	    AS	activatetime,
+			conflictdelay	    AS	conflictdelay,
+			starttime	        AS	starttime,
+			endtime	            AS	endtime,
+			taskstatus	        AS	taskstatus,
+			datastatus	        AS	datastatus,
+			taskparams	        AS	taskparams,
+			remarks         	AS	remarks,
+			machine	            AS	machine,
+			tenantid	        AS	tenantid,
+			userid	            AS	userid,
+			error_code          AS  errorcode, 
+			spcfdmac            AS	spcfdmac,
+			error_msg	        AS	errormsg,
+			taskclassify	    AS	taskclassify
+		from task	
+		]]>
+		WHERE task.taskstatus = 0
+        <isNotEmpty property="task" prepend="AND">
+            <![CDATA[ 
+                task.task = #task#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="tasktype" prepend="AND">
+            <![CDATA[ 
+                task.tasktype = #tasktype#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="taskclassify" prepend="AND">
+            <![CDATA[ 
+                task.taskclassify = #taskclassify#
+            ]]>
+        </isNotEmpty>
+		<isNotEmpty property="spcfdmac" prepend="AND">
+            <![CDATA[ 
+                task.spcfdmac = #spcfdmac#
+            ]]>
+        </isNotEmpty>
+        <![CDATA[   
+           ORDER BY tasklevel desc, id asc limit 0,1
+        ]]>
+	</select>
+	
+	<select id="getTaskInfoByPage" resultClass="schTaskVO" parameterClass="schTaskVO">
+	  <![CDATA[
+	   SELECT
+			id	                AS	id,
+			tasktype	        AS	tasktype,
+			taskpagestyletype	AS	taskpagestyletype,
+			task	            AS	task,
+			tasklevel	        AS	tasklevel,
+			local	            AS	local,
+			remote	            AS	remote,
+			timeout	            AS	timeout,
+			activatetime	    AS	activatetime,
+			conflictdelay	    AS	conflictdelay,
+			starttime	        AS	starttime,
+			endtime	            AS	endtime,
+			taskstatus	        AS	taskstatus,
+			datastatus	        AS	datastatus,
+			taskparams	        AS	taskparams,
+			remarks         	AS	remarks,
+			machine	            AS	machine,
+			tenantid	        AS	tenantid,
+			userid	            AS	userid,
+			error_code          AS  errorcode, 
+			spcfdmac            AS	spcfdmac,
+			error_msg	        AS	errormsg,
+			taskclassify	    AS	taskclassify
+		from task	
+		]]>
+		WHERE 1=1
+        <isNotEmpty property="task" prepend="AND">
+            <![CDATA[ 
+                task.task = #task#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="tasklevel" prepend="AND">
+            <![CDATA[ 
+                task.tasklevel = #tasklevel#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="taskpagestyletype" prepend="AND">
+            <![CDATA[ 
+                task.taskpagestyletype = #taskpagestyletype#
+            ]]>
+        </isNotEmpty>
+		<isNotEmpty property="spcfdmac" prepend="AND">
+            <![CDATA[ 
+                task.spcfdmac = #spcfdmac#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="taskstatus" prepend="AND">
+            <![CDATA[ 
+                task.taskstatus = #taskstatus#
+            ]]>
+        </isNotEmpty>
+        <![CDATA[   
+           ORDER BY id asc 
+           LIMIT  #pageHandle.currentResult#,#pageHandle.showCount#
+        ]]>
+	</select>
+	
+	<select id="getTaskCountByPage" resultClass="Integer" parameterClass="schTaskVO">
+	  <![CDATA[
+	    SELECT
+           COUNT(1) 
+		from task	
+		]]>
+		WHERE 1=1
+        <isNotEmpty property="task" prepend="AND">
+            <![CDATA[ 
+                task.task = #task#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="tasklevel" prepend="AND">
+            <![CDATA[ 
+                task.tasklevel = #tasklevel#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="taskpagestyletype" prepend="AND">
+            <![CDATA[ 
+                task.taskpagestyletype = #taskpagestyletype#
+            ]]>
+        </isNotEmpty>
+		<isNotEmpty property="spcfdmac" prepend="AND">
+            <![CDATA[ 
+                task.spcfdmac = #spcfdmac#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="taskstatus" prepend="AND">
+            <![CDATA[ 
+                task.taskstatus = #taskstatus#
+            ]]>
+        </isNotEmpty>
+	</select>
+	
+	<select id="getEveryGroupTaskID" resultClass="TaskVo" parameterClass="TaskVo">
+	  <![CDATA[
+	   SELECT
+			id AS id,
+			task AS	task 
+		from task	
+		]]>
+		WHERE task.taskstatus = 0
+        <isNotEmpty property="task" prepend="AND">
+            <![CDATA[ 
+                task.task = #task#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="tasktype" prepend="AND">
+            <![CDATA[ 
+                task.tasktype = #tasktype#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="taskclassify" prepend="AND">
+            <![CDATA[ 
+                task.taskclassify = #taskclassify#
+            ]]>
+        </isNotEmpty>
+		<isNotEmpty property="spcfdmac" prepend="AND">
+            <![CDATA[ 
+                task.spcfdmac = #spcfdmac#
+            ]]>
+        </isNotEmpty>
+        <![CDATA[   
+           ORDER BY tasklevel desc, id asc limit 0,600
+        ]]>
+	</select>
+	
+	<select id="getGroupTaskZero" resultClass="TaskVo">
+	  <![CDATA[
+	   SELECT
+			tasktype	        AS	tasktype,
+			task	            AS	task,
+			remote	            AS	remote,
+			taskstatus	        AS	taskstatus,
+			spcfdmac            AS	spcfdmac,
+			taskclassify	    AS	taskclassify
+		from task
+		where taskstatus = 0
+		GROUP BY task,tasktype,taskstatus,taskclassify,spcfdmac 
+		ORDER BY task
+	]]>
+	</select>
+	
+	<select id="getGroupTaskOne" resultClass="TaskVo">
+	  <![CDATA[
+	   SELECT
+			tasktype	        AS	tasktype,
+			task	            AS	task,
+			remote	            AS	remote,
+			taskstatus	        AS	taskstatus,
+			spcfdmac            AS	spcfdmac,
+			taskclassify	    AS	taskclassify
+		from task
+		where taskstatus = 1
+		GROUP BY task,tasktype,taskstatus,taskclassify,spcfdmac 
+		ORDER BY task
+	]]>
+	</select>
+	
+    <update id="upTaskStatus" parameterClass="int">
+        <![CDATA[
+           UPDATE 
+               task 
+           SET 
+               taskstatus=1
+           WHERE 
+               id=#id# and taskstatus = 0
+        ]]>
+    </update>
+    
+     <update id="upOutTimeTask">
+        <![CDATA[
+           UPDATE 
+               task
+           SET 
+               taskstatus=0
+           WHERE 
+               timeout < UNIX_TIMESTAMP(now()) and taskstatus = 1
+        ]]>
+    </update>
+    
+    <!-- 插入爬虫查询模板VO实体对象 -->
+    <insert id="insertTaskInfo" parameterClass="TaskVo">
+        <![CDATA[
+            INSERT INTO 
+                    task
+                    (
+                    id,
+					tasktype,
+					taskpagestyletype,
+					task,
+					tasklevel,
+					local,
+					remote,
+					timeout,
+					activatetime,
+					conflictdelay,
+					starttime,
+					endtime,
+					taskstatus,
+					datastatus,
+					taskparams,
+					remarks,
+					machine,
+					tenantid,
+					userid,
+					error_code,
+					spcfdmac,
+					error_msg,
+					taskclassify,
+					create_time,
+					modifier_code
+                    )
+            VALUES  (
+                    #id#,
+					#tasktype#,
+					#taskpagestyletype#,
+					#task#,
+					#tasklevel#,
+					#local#,
+					#remote#,
+					#timeout#,
+					#activatetime#,
+					#conflictdelay#,
+					#starttime#,
+					#endtime#,
+					#taskstatus#,
+					#datastatus#,
+					#taskparams#,
+					#remarks#,
+					#machine#,
+					#tenantid#,
+					#userid#,
+					#error_code#,
+					#spcfdmac#,
+					#error_msg#,
+					#taskclassify#,
+					#create_time#,
+					#modifier_code#
+                    ) 
+        ]]>
+        <selectKey keyProperty="id" resultClass="String">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    
+    <select id="searchTaskByID" resultClass="TaskVo" parameterClass="String">
+      <include refid="searchTaskResult"/>
+       <![CDATA[
+            WHERE  task.id = #id#
+        ]]>
+	</select>
+	
+	 <update id="updateTaskInfoByID" parameterClass="TaskVo">
+        <![CDATA[
+           UPDATE 
+               task
+           SET 
+               task.taskparams=#taskparams#
+           WHERE 
+               task.id = #id#
+        ]]>
+    </update>
+    <!-- 爬虫取任务后，更新 -->
+    <update id="updateTaskBySpRead" parameterClass="TaskVo">
+        <![CDATA[
+           UPDATE 
+                task
+           SET
+	            task.local = #local#,
+				task.remote = #remote#,
+				task.starttime = #starttime#,
+				task.endtime = #endtime#,
+				task.timeout = #timeout#,
+				task.activatetime = #activatetime#,
+				task.datastatus = #datastatus#,
+				task.taskstatus = #taskstatus#,
+				task.taskparams = #taskparams#,
+				task.machine=#machine# 
+           WHERE
+               task.id = #id#
+        ]]>
+    </update>
+    
+    
+</sqlMap>
+

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.bxt.sptask.user.vo">
+    <typeAlias alias="usersVO" type="com.bxt.sptask.user.vo.UserVO"/>
+
+    <!-- 通用查询条件 -->
+    <sql id="searchCondition">
+	    WHERE 1 = 1
+        <isNotEmpty property="userid" prepend="AND">
+            <![CDATA[ 
+                users.userid = #userid#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="alloweditinfo" prepend="AND">
+            <![CDATA[ 
+                users.alloweditinfo = #alloweditinfo#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="binduserid" prepend="AND">
+            <![CDATA[ 
+                users.binduserid = #binduserid#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="email" prepend="AND">
+            <![CDATA[ 
+                users.email = #email#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="expiretime" prepend="AND">
+            <![CDATA[ 
+                users.expiretime = #expiretime#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="isonline" prepend="AND">
+            <![CDATA[ 
+                users.isonline = #isonline#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="onlinetime" prepend="AND">
+            <![CDATA[ 
+                users.onlinetime = #onlinetime#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="password" prepend="AND">
+            <![CDATA[ 
+                users.password = #password#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="realname" prepend="AND">
+            <![CDATA[ 
+                users.realname = #realname#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="tenantid" prepend="AND">
+            <![CDATA[ 
+                users.tenantid = #tenantid#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="updatetime" prepend="AND">
+            <![CDATA[ 
+                users.updatetime = #updatetime#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="username" prepend="AND">
+            <![CDATA[ 
+                users.username = #username#
+            ]]>
+        </isNotEmpty>
+        <isNotEmpty property="usertype" prepend="AND">
+            <![CDATA[ 
+                users.usertype = #usertype#
+            ]]>
+        </isNotEmpty>
+    </sql>
+    
+    <!-- 通用查询字段 -->
+    <sql id="searchResult">
+        <![CDATA[
+	    SELECT
+            users.userid AS userid,
+            users.alloweditinfo AS alloweditinfo,
+            users.binduserid AS binduserid,
+            users.email AS email,
+            users.expiretime AS expiretime,
+            users.isonline AS isonline,
+            users.onlinetime AS onlinetime,
+            users.password AS password,
+            users.realname AS realname,
+            users.tenantid AS tenantid,
+            users.updatetime AS updatetime,
+            users.username AS username,
+            users.usertype AS usertype 
+        FROM  users AS users
+        ]]>
+    </sql>
+
+    <!-- 查找usersVO实体信息列表 -->
+    <select id="searchUsersList" resultClass="usersVO" parameterClass="usersVO">
+        <include refid="searchResult"/>
+        <include refid="searchCondition"/>
+        <isNotEmpty property="multiColumnSort">
+            <![CDATA[ $multiColumnSort$ ]]>
+        </isNotEmpty>
+        <isNotEmpty property="startIndex">
+            <isNotEmpty property="size">
+                <![CDATA[ LIMIT #startIndex#, #size# ]]>
+            </isNotEmpty>
+        </isNotEmpty>
+    </select>
+    
+    <!-- 查找usersVO实体信息总数 -->
+    <select id="searchUsersCount" resultClass="int" parameterClass="usersVO">
+        <![CDATA[
+            SELECT count(1) count_
+	        FROM   users AS users
+        ]]>
+        <include refid="searchCondition" />
+    </select>
+
+    <!-- 查询usersVO实体对象 -->
+    <select id="searchUsersById" resultClass="usersVO" parameterClass="Integer">
+        <include refid="searchResult" />
+        <![CDATA[
+            WHERE  users.userid = #userid#
+        ]]>
+    </select>
+
+    <select id="searchUsers" resultClass="usersVO" parameterClass="usersVO">
+        <include refid="searchResult" />
+        <include refid="searchCondition"/>
+    </select>
+    
+    <!-- 更新usersVO实体对象 -->
+    <update id="updateUsers" parameterClass="usersVO">
+       <![CDATA[
+            UPDATE users
+            SET
+                   alloweditinfo = #alloweditinfo#,
+                   binduserid = #binduserid#,
+                   email = #email#,
+                   expiretime = #expiretime#,
+                   isonline = #isonline#,
+                   onlinetime = #onlinetime#,
+                   password = #password#,
+                   realname = #realname#,
+                   tenantid = #tenantid#,
+                   updatetime = #updatetime#,
+                   username = #username#,
+                   usertype = #usertype# 
+            WHERE
+                   userid = #userid#
+        ]]>
+    </update>
+
+    <!-- 插入usersVO实体对象 -->
+    <insert id="insertUsers" parameterClass="usersVO">
+        <![CDATA[
+            INSERT INTO 
+                    users
+                    (
+                    alloweditinfo,
+                    binduserid,
+                    email,
+                    expiretime,
+                    isonline,
+                    onlinetime,
+                    password,
+                    realname,
+                    tenantid,
+                    updatetime,
+                    username,
+                    usertype
+                    )
+            VALUES  (
+                    #alloweditinfo#,
+                    #binduserid#,
+                    #email#,
+                    #expiretime#,
+                    #isonline#,
+                    #onlinetime#,
+                    #password#,
+                    #realname#,
+                    #tenantid#,
+                    #updatetime#,
+                    #username#,
+                    #usertype#
+                    ) 
+        ]]>
+        <selectKey keyProperty="userid" resultClass="Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <!-- 删除usersVO实体对象 -->
+    <delete id="deleteUsers" parameterClass="Integer">
+        <![CDATA[
+            DELETE FROM 
+                   users
+            WHERE  
+                   userid = #userid# 
+        ]]>
+    </delete>
+
+</sqlMap>
