@@ -1,0 +1,93 @@
+/*
+文件描述: 3iSpider的GB模块配置文件
+
+注意:
+1. 行开头不支持空格或tab
+2. 多行注释以"/*"作为起始行，以"*/"作为结束行
+3. 单行注释必须以"//"开始
+4. 配置内容必须以预定义标签开始
+
+预定义标签解释:
+#USERNAME:  [单值, 字符串     , 可选, 无默认                 ] 用户名，无交互任务模式下必选
+#PASSWORD:  [单值, 字符串     , 可选, 无默认                 ] 加密过的MD5密码，无交互任务模式下必选
+#INTERACT:  [单值, 数字0/1    , 可选, 默认1                  ] 交互选项, 0 - 无交互模式, 1 - 交互模式
+#LOCALMODE: [单值, 数字0/1    , 可选, 默认0                  ] 本地选项, 0 - 任务模式, 1 - 本地模式（不申请任务，依据本地JSConfig.txt和URL.txt运行）
+#TASKSTART: [单值, 数字0/1/2  , 可选, 默认0                  ] 任务启动模式, 0 - 自动启动, 1 - 提示执行任务数, 2 - 提示运行时间
+#TASKINTV:  [单值, 数字       , 可选, 无默认                 ] 无任务时重新申请的间隔（毫秒）
+#TASKURL:   [单值, 字符串     , 可选, 无默认                 ] 申请任务URL
+#TASKTYPE:  [单值, JSON数组   , 可选, 无默认                 ] 申请任务类型，格式：[{"tasktype":<类型号>,"task":<子类型号>}]
+#DMPFILE:   [单值, 字符串     , 可选, 无默认                 ] 本地dump数据文件
+#LOGFILE:   [单值, 字符串     , 可选, 默认"Output\Spider.log"] 日志文件
+#SECFILE:   [单值, 字符串     , 可选, 默认"Output\.secinfo"  ] 安全信息文件
+#LOGLVL:    [单值, 数字[0 - 4], 可选, 默认3                  ] 日志级别, 0 - NONE, 1 - ERROR, 2 - WARN, 3 - INFO, 4 - DEBUG
+#DBGLVL:    [单值, 数字       , 可选, 默认1                  ] debug级别，控制debug信息输出，越大越详细
+#HANGTIME:  [单值, 数字       , 可选, 无默认                 ] 挂起警告时间（毫秒），当超过此时间无进展（加载新窗口或子窗口）将弹出警告窗口
+#HANGREGO:  [单值, 数字       , 可选, 无默认                 ] 触发重试的挂起次数，超过次数将触发页面重试（挂起表示超过#HANGTIME无新窗口加载）
+#REGOINTV:  [单值, 数字       , 可选, 无默认                 ] 重试的最小间隔（毫秒），防止多个子任务同时超时导致的多次页面重试
+#DLIMAGE:   [单值, 数字0/1    , 可选, 默认0                  ] 是否允许下载图片
+#DLVIDEO:   [单值, 数字0/1    , 可选, 默认0                  ] 是否允许下载视频
+#DLSOUND:   [单值, 数字0/1    , 可选, 默认0                  ] 是否允许下载背景音
+#DLSCRIPT:  [单值, 数字0/1    , 可选, 默认0                  ] 是否允许下载执行脚本
+#DLJAVA:    [单值, 数字0/1    , 可选, 默认0                  ] 是否允许下载执行java
+#DLACTIVE:  [单值, 数字0/1    , 可选, 默认0                  ] 是否允许下载ActiveX
+#SHOWCHLD:  [单值, 数字0/1    , 可选, 默认1                  ] 是否显示子任务窗口
+#VERITIME:  [单值, 数字       , 可选, 默认10000              ] 等待验证码时检查任务状态间隔（毫秒）
+
+*/
+// 用户名
+#USERNAME:
+// 加密过的MD5密码
+#PASSWORD:
+// 是否交互模式
+#INTERACT:1
+// 是否本地模式
+#LOCALMODE:0
+// 本地模式运行的JS版本:默认为旧版本,即默认为:0(false)
+#DEFAULT_VERSION_NEW:1
+
+// 任务启动模式, 0 - 自动, 1 - 提示任务数, 2 - 提示运行时间
+#TASKSTART:0
+// 无任务时重新申请的间隔（毫秒）
+#TASKINTV:10000
+// 申请任务的URL
+#TASKURL:http://120.27.160.180:8980/tasksposxmz/TaskAgentHandle/taskAgent.do
+// 申请任务类型
+//#TASKTYPE:[{"tasktype":2,"task":4},{"tasktype":2,"task":10},{"tasktype":2,"task":11},{"tasktype":2,"task":5},{"tasktype":2,"task":7},{"tasktype":2,"task":15},{"tasktype":2,"task":16},{"tasktype":2,"task":20}]
+#TASKTYPE:[{"tasktype":2,"task":20}]
+// 本地dump数据文件
+#DMPFILE:Output\Spider.out
+// 日志文件名,如配置成相对路径+文件名(FileName),则最终生成的日志为 ...\FileName-YYYYmmDD.log
+#LOGFILE:Output\Spider
+// 安全文件
+#SECFILE:Output\.secinfo
+// 日志级别, 0 - NONE, 1 - ERROR, 2 - WARN, 3 - INFO, 4 - DEBUG
+#LOGLVL:4
+// Debug级别
+#DBGLVL:4
+// 挂起警告时间（毫秒），当超过此时间无进展将弹出警告窗口
+#HANGTIME:30000
+// 触发重试的挂起次数，超过次数将触发页面重试
+#HANGREGO:3
+// 重试的最小间隔（毫秒）
+#REGOINTV:1000
+// 下载控制项
+#DLIMAGE:1
+#DLVIDEO:0
+#DLSOUND:0
+#DLSCRIPT:1
+#DLJAVA:1
+#DLACTIVE:1
+// 是否显示子任务窗口
+#SHOWCHLD:0
+// 等待验证码时检查任务状态间隔（毫秒）
+#VERITIME:10000
+//最大内存,单位 ：兆
+#MAXRAM:500
+//是否兼容容错系统 0:不兼容 1：兼容
+#COMPATIBLE:1
+//随机浏览器模式 0:默认 1：随机 2：指定
+#BROWSERMODE:0
+//指定浏览器模式
+#BROWSERINDEX:0
+//指定IE版本，目前支持ie7,ie8,ie9,ie10,ie11
+#IEVERSION:11

@@ -1,0 +1,1 @@
+http://admin.3i.app.inter3i.com:7021/sysadmin/

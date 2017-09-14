@@ -1,0 +1,96 @@
+//******************** 搜狗微信-大庆旅游-文章列表-抓取URL-配置模版-begin ***************************//
+
+//搜狗搜索微信大庆旅游文章列表：http://weixin.sogou.com/weixin?type=2&query=%E5%A4%A7%E5%BA%86%E6%97%85%E6%B8%B8&ie=utf8&_sug_=y&_sug_type_=1&w=01015002&oq=%E5%A4%A7%E5%BA%86&ri=0&sourceid=sugg&stj=0%3B0%3B0%3B0&stj2=0&stj0=0&stj1=0&hp=36&hp1=&sut=3668&sst0=1468400414551&lkt=0%2C0%2C0
+
+//模版名称
+#FILENAME:weChat-daQing-urls
+//滚轮
+#SCROLLDONE:{"scrolltype":[{"pos":"bottom","scrType":"len","scrLen":0.5,"time":500,"auto":true}]}
+
+//分割文章列表，20161202添加
+#SEP:{"props":[{"nam":"nodeName","val":"LI","cmp":"=="},{"nam":"id","val":"sogou_vr_11002601_box_","cmp":"[]"}]}
+
+//URLS
+#GRAB:{"conds":[{"props":[{"nam":"nodeName","val":"A"},{"nam":"parentNode.nodeName","val":"H4"},{"nam":"parentNode.parentNode.nodeName","val":"DIV"},{"nam":"parentNode.parentNode.class","val":"txt-box"}]}],"tgt":{"nam":"href"},"out":"url","tran":"function(str){var strq='\"Url\":\"'; var nPos = str.indexOf(strq); if(nPos>=0){str = str.substring(nPos+strq.length);} var strh='\"'; nPos = str.indexOf(strh); if(nPos >=0) {str = str.substring(0,nPos);} return str;}"}
+
+//URLS，20161202添加
+#GRAB:{"conds":[{"props":[{"nam":"nodeName","val":"A"},{"nam":"id","val":"sogou_vr_11002601_title_","cmp":"[]"}]}],"tgt":{"nam":"href"},"out":"url","tran":"function(str){var strq='\"Url\":\"'; var nPos = str.indexOf(strq); if(nPos>=0){str = str.substring(nPos+strq.length);} var strh='\"'; nPos = str.indexOf(strh); if(nPos >=0) {str = str.substring(0,nPos);} return str;}"}
+
+//栏目文章标题
+//#GRAB:{"conds":[{"props":[{"nam":"nodeName","val":"A"},{"nam":"parentNode.nodeName","val":"DIV"},{"nam":"parentNode.class","val":"title"}]}],"tgt":{"nam":"innerText"},"out":"post_title"}
+
+//下一页
+#CONDSDO:{"conds":[{"ope":"A","propexs":[]}],"metStep":{"stepNum":1,"changePage":false,"actions":[{"lcond":{"ope":"A","propexs":[{"left":{"dom":"nodeName"},"right":{"cnst":"A"}},{"left":{"dom":"innerText"},"right":{"cnst":"下一页"}},{"left":{"dom":"id"},"right":{"cnst":"sogou_next"}}]},"noMetSkip":false,"tgtex":[{"type":{"act":"pageNext"}}]}]}}
+
+// 翻页延迟毫秒数
+#DELAY:2000
+// 提交URL的类型
+#URLTYPE:commtask
+// 挂起警告毫秒数
+#HANGTIME:5000
+//******************** 搜狗微信-大庆旅游-文章列表-抓取URL-配置模版-end ***************************//
+
+
+
+
+
+
+//******************** 搜狗微信-大庆旅游-文章内容-抓取内容-配置模版-begin ***************************//
+//大庆旅游文章正文：http://mp.weixin.qq.com/s?src=3&timestamp=1468319047&ver=1&signature=gmMdeDK5ZszqjUbeX1xe1ox1rrC3pLdTTcfA1jP32LB-3Cotv7xuzw6XtnAcTAwdQUSjNnPwToQDjsvH-sfnnz-8B8P1ckOug5mbwSw0Iro46kA0Fw3UNgDXM6Sbo4*pcgMFxguAtNdk-zgraFyJ*Q==
+
+//模版名称
+#FILENAME:weChat-daQing-content
+//滚轮
+#SCROLLDONE:{"scrolltype":[{"pos":"bottom","scrType":"len","scrLen":0.5,"time":200}]}
+
+//获取主页面的URL，进行数据映射，并添加到运行时参数中去
+#PRECONDSDO:{"conds": [{"ope": "A","propexs": []}], "metStep": {"stepNum": 1,"changePage": true,"actions": [{"lcond": {"ope": "A","propexs": []},"tgtex": [{"type": {"act": "dataMapping","param": {"formParm": {"value": "|curPageURLInPageCache|","jsonParse": false,"valueType": 2},"assignMode": 1,"toParam": {"value": "|runTimeOriginalUrl|","JsonParse": false,"valueType": 2}}}}]}]}}
+
+
+//预点击
+//#PREACT:{"props":[{"nam":"nodeName","val":"DIV"},{"nam":"innerText","val":"点击展开全文","cmp":"[]"},{"nam":"id","val":"read_all"}]}
+
+//文章标题
+#GRAB:{"conds":[{"props":[{"nam":"nodeName","val":"H2"},{"nam":"id","val":"activity-name"}]}],"tgt":{"nam":"innerText"},"out":"post_title"}
+
+//文章发表时间
+#GRAB:{"conds":[{"props":[{"nam":"nodeName","val":"EM"},{"nam":"id","val":"post-date"}]}],"tgt":{"nam":"innerText"},"out":"created_at","tran":"function(str){return str2ts(str)}"}
+
+//文章作者
+#GRAB:{"conds":[{"props":[{"nam":"nodeName","val":"SPAN"},{"nam":"class","val":"rich_media_meta rich_media_meta_text rich_media_meta_nickname"}]}],"tgt":{"nam":"innerText"},"out":"screen_name"}
+
+//文章来源
+//#GRAB:{"conds":[{"props":[{"nam":"nodeName","val":"A"},{"nam":"class","val":"activity-meta"},{"nam":"parentNode.nodeName","val":"SPAN"},{"nam":"parentNode.parentNode.nodeName","val":"P"},{"nam":"parentNode.parentNode.class","val":"bizinfo"}]}],"tgt":{"nam":"innerText"},"out":"retweeted_source","getImg":""}
+
+
+//文章内容
+#GRAB:{"conds":[{"props":[{"nam":"nodeName","val":"DIV"},{"nam":"id","val":"js_content"}]}],"tgt":{"nam":"innerText"},"out":"text","":"function modifyUrl(str) { var regSrc = new RegExp('src', 'g'); str = str.replace(regSrc, 'modify_self'); var regReal = new RegExp('data-modify_self', 'g'); str = str.replace(regReal, 'src'); return str; };"}
+
+//文章阅读数
+#GRAB:{"conds":[{"props":[{"nam":"nodeName","val":"SPAN"},{"nam":"id","val":"sg_readNum3"}]}],"tgt":{"nam":"innerText"},"out":"read_count"}
+
+//点赞数
+#GRAB:{"conds":[{"props":[{"nam":"nodeName","val":"SPAN"},{"nam":"id","val":"sg_likeNum3"}]}],"tgt":{"nam":"innerText"},"out":"praises_count"}
+
+//评论，放入产品描述字段：productDesc
+#GRAB:{"conds":[{"props":[{"nam":"nodeName","val":"LI"},{"nam":"class","val":"discuss_item"},{"nam":"parentNode.nodeName","val":"UL"},{"nam":"parentNode.id","val":"sg_cmt_list"}]}],"tgt":{"nam":"innerText"},"out":"productDesc[]"}
+
+
+//将参数定义中的 original_url 参数设置到每条数据中去
+#PREDUMP:{"lcond":{"ope":"A","propexs":[]},"tgtex":[{"type":{"act":"dataMapping","param":{"formParm":{"value":"|runTimeOriginalUrl|","jsonParse":false,"valueType":2},"assignMode":1,"toParam":{"value":"|collectDatasOrigUrl|"}}}}]}
+//将参数定义中的 source_host 参数设置到每条数据中去
+#PREDUMP:{"lcond":{"ope":"A","propexs":[]},"tgtex":[{"type":{"act":"dataMapping","param":{"formParm":{"value":"|sourceHostParentParam|","jsonParse":false,"valueType":2},"assignMode":1,"toParam":{"value":"|collectDataSourceHost|"}}}}]}
+//将参数定义中的媒体类型：column 参数设置到每条数据中去
+#PREDUMP:{"lcond":{"ope":"A","propexs":[]},"tgtex":[{"type":{"act":"dataMapping","param":{"formParm":{"value":"|columnParentParam|","jsonParse":false,"valueType":2},"assignMode":1,"toParam":{"value":"|collectDataColumn|"}}}}]}
+//将参数定义中的品类：column1 参数设置到每条数据中去
+#PREDUMP:{"lcond":{"ope":"A","propexs":[]},"tgtex":[{"type":{"act":"dataMapping","param":{"formParm":{"value":"|column1ParentParam|","jsonParse":false,"valueType":2},"assignMode":1,"toParam":{"value":"|collectDataColumn1|"}}}}]}
+//将参数定义中的品类：column1 参数设置到每条数据中去
+#PREDUMP:{"lcond":{"ope":"A","propexs":[]},"tgtex":[{"type":{"act":"dataMapping","param":{"formParm":{"value":"|floorParentParam|","jsonParse":false,"valueType":2},"assignMode":1,"toParam":{"value":"|collectDataFloor|"}}}}]}
+
+// 翻页延迟毫秒数
+#DELAY:5000
+// 提交URL的类型
+#URLTYPE:commtask
+// 挂起警告毫秒数
+#HANGTIME:5000
+//******************** 搜狗微信-大庆旅游-文章内容-抓取内容-配置模版-end ***************************//

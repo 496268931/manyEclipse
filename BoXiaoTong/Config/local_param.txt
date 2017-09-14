@@ -1,0 +1,16 @@
+﻿//任务参数定义
+#paramsDef:{"run_url": "http://lady.163.com/"}
+//运行时参数
+#runTimeParam:
+//父参数
+#parentParam:
+
+//参数路径定义映射
+#pathStructMap:{"xinghao":{"col_name":"xinghao-tag","col_type":23,"paramSource":2},"manyidu":{"col_name":"manyidu-tag","col_type":23,"paramSource":2},"run_url":{"col_name":"run_url","col_type":23,"paramSource":2},"floorRunTime":{"col_name":"floorNum","col_type":23,"paramSource":2},"collectDatasKey":{"col_name":"g_collect","col_type":23,"paramSource":10,"col_name_ex":{"type":1,"data":{"arr_data":{"arr_idx":-1}},"name_ex":{"type":2,"data":{"chld_col_name":"floor"}}}},"collectDatasOrigUrlKey":{"col_name":"g_collect","col_type":23,"paramSource":10,"col_name_ex":{"type":1,"data":{"arr_data":{"arr_idx":-1}},"name_ex":{"type":2,"data":{"chld_col_name":"original_url"}}}},"floorRunTimeParentParam":{"col_name":"floorNum","col_type":23,"paramSource":4},"parentParamOriURL":{"col_name":"original_url","col_type":23,"paramSource":4},"runTimeParmOriUrlKey":{"col_name":"original_url","col_type":23,"paramSource":3},"curGrabFloor":{"col_name":"floor","col_type":23,"paramSource":12},"curPageURLInPageCache":{"col_name":"cur-win-lct","col_type":23,"paramSource":11},"collectDatasLevelUrlKey":{"col_name":"g_collect","col_type":23,"paramSource":10,"col_name_ex":{"type":1,"data":{"arr_data":{"arr_idx":-1}},"name_ex":{"type":2,"data":{"chld_col_name":"level"}}}},"sourceHost":{"col_name":"source_host","col_type":23,"paramSource":2},"meitileixing":{"col_name":"column","col_type":23,"paramSource":2},"pinlei":{"col_name":"column1","col_type":23,"paramSource":2},"sourceHostInCollects":{"col_name":"g_collect","col_type":23,"paramSource":10,"col_name_ex":{"type":1,"data":{"arr_data":{"arr_idx":-1}},"name_ex":{"type":2,"data":{"chld_col_name":"source_host"}}}},"meitileixingInCollects":{"col_name":"g_collect","col_type":23,"paramSource":10,"col_name_ex":{"type":1,"data":{"arr_data":{"arr_idx":-1}},"name_ex":{"type":2,"data":{"chld_col_name":"column"}}}},"pinleiInCollects":{"col_name":"g_collect","col_type":23,"paramSource":10,"col_name_ex":{"type":1,"data":{"arr_data":{"arr_idx":-1}},"name_ex":{"type":2,"data":{"chld_col_name":"column1"}}}}}
+
+//步骤-->页面URL正则表达式映射表:1.当前PggeURL正则表达式 2.当前URL起始部分 3.配置成当前页面全部URL
+#stepNumURLPatterns:{"1":["iframe:http://v.qq.com/txyp/coralComment_yp_1.0.htm"]}
+
+
+//步骤-->模版名称映射关系
+#templMap:{"qq-video-pinglun":[1]}
