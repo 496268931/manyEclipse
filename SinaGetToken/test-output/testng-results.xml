@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="1" failed="0" ignored="0" total="1" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="30427" started-at="2017-06-27T01:54:47Z" finished-at="2017-06-27T01:55:17Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="30427" started-at="2017-06-27T01:54:47Z" finished-at="2017-06-27T01:55:17Z">
+      <class name="com.wy.Start">
+        <test-method status="FAIL" signature="setUp()[pri:0, instance:com.wy.Start@27efef64]" name="setUp" is-config="true" duration-ms="30381" started-at="2017-06-27T09:54:47Z" finished-at="2017-06-27T09:55:17Z">
+          <exception class="org.openqa.selenium.SessionNotCreatedException">
+            <message>
+              <![CDATA[A new session could not be created. (Original error: Could not find a connected Android device.) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: 'unknown', revision: '1969d75', time: '2016-10-18 09:43:45 -0700'
+System info: host: 'wiseweb', ip: '192.168.40.60', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
+Driver info: driver.version: AndroidDriver]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.SessionNotCreatedException: A new session could not be created. (Original error: Could not find a connected Android device.) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: 'unknown', revision: '1969d75', time: '2016-10-18 09:43:45 -0700'
+System info: host: 'wiseweb', ip: '192.168.40.60', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
+Driver info: driver.version: AndroidDriver
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:161)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:64)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:141)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:69)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:241)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:128)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:141)
+	at io.appium.java_client.DefaultGenericMobileDriver.<init>(DefaultGenericMobileDriver.java:38)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:83)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:93)
+	at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:72)
+	at com.wy.Start.setUp(Start.java:32)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.TestRunner.beforeRun(TestRunner.java:626)
+	at org.testng.TestRunner.run(TestRunner.java:594)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.SessionNotCreatedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="SKIP" signature="testAppearCorrect()[pri:0, instance:com.wy.Start@27efef64]" name="testAppearCorrect" duration-ms="0" started-at="2017-06-27T09:55:17Z" finished-at="2017-06-27T09:55:17Z">
+          <exception class="org.openqa.selenium.SessionNotCreatedException">
+            <message>
+              <![CDATA[A new session could not be created. (Original error: Could not find a connected Android device.) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: 'unknown', revision: '1969d75', time: '2016-10-18 09:43:45 -0700'
+System info: host: 'wiseweb', ip: '192.168.40.60', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
+Driver info: driver.version: AndroidDriver]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.SessionNotCreatedException: A new session could not be created. (Original error: Could not find a connected Android device.) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: 'unknown', revision: '1969d75', time: '2016-10-18 09:43:45 -0700'
+System info: host: 'wiseweb', ip: '192.168.40.60', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_101'
+Driver info: driver.version: AndroidDriver
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:161)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:64)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:141)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:69)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:241)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:128)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:141)
+	at io.appium.java_client.DefaultGenericMobileDriver.<init>(DefaultGenericMobileDriver.java:38)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:83)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:93)
+	at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:72)
+	at com.wy.Start.setUp(Start.java:32)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.TestRunner.beforeRun(TestRunner.java:626)
+	at org.testng.TestRunner.run(TestRunner.java:594)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.SessionNotCreatedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAppearCorrect -->
+        <test-method status="SKIP" signature="endUp()[pri:0, instance:com.wy.Start@27efef64]" name="endUp" is-config="true" duration-ms="0" started-at="2017-06-27T09:55:17Z" finished-at="2017-06-27T09:55:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endUp -->
+      </class> <!-- com.wy.Start -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,39 @@
+httpd.exe -w -n "Apache2.2" -k start
+
+
+solr_NLP:localhost:8070
+
+
+80(weibo前台) ----> 8081 (weibo 后台)   http://192.168.0.151/login.html (汽车论坛 local_weibo)
+
+8090(eb前台)  ----> 8071 (eb 后台)  (电商旅游 eb)
+
+8091---wangliceshi   (微博 weibo_new)
+
+
+****************tomcat 日志目录 *********************
+D:\JAVA\tomcat6.0\logs
+****************tomcat 日志目录 *********************
+
+**************** apache 日志 *********************
+E:\inter3i\website\logs
+**************** apache 日志 *********************
+
+//TODO
+******************** 共享 日志目录*****************
+
+
+
+**************tomcat 启动脚本目录***************
+D:\JAVA\tomcat6.0-muti-instance\tomcat6.0\bin
+
+
+
+
+
+30-solr-eb:8080
+30-solr-weibo_new:9000
+
+local-solr-weibo:9001
+local-solr-eb:9002
+local-solr-weibo-new:9003
